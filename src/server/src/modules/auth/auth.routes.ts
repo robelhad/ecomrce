@@ -49,7 +49,7 @@ router.get( "/microsoft", handleSocialLogin("microsoft") );
 router.get( "/microsoft/callback", 
 passport.authenticate("microsoft", { failureRedirect: "/auth/login?error=microsoft", session: true, }), 
   (req, res) => { 
-    res.redirect(process.env.CLIENT_APP_URL || "http://localhost:3000"); 
+    res.redirect(process.env.CLIENT_APP_URL || "https://ecommerce-sepia-iota-43.vercel.app/"); 
   } 
 );
 

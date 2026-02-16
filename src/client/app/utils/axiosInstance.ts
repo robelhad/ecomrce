@@ -5,11 +5,11 @@ const getBaseURL = () => {
   if (typeof window !== "undefined") {
     // Client-side: use environment variables
     return process.env.NODE_ENV === "production"
-      ? "https://full-stack-ecommerce-n5at.onrender.com/api/v1"
-      : "http://localhost:5000/api/v1";
+      ? "https://ecomrce-e7wd.onrender.com/api/v1"
+      : "https://ecomrce-e7wd.onrender.com/api/v1";
   }
   // Server-side: default to development
-  return "http://localhost:5000/api/v1";
+  return "https://ecomrce-e7wd.onrender.com/api/v1";
 };
 
 const axiosInstance: AxiosInstance = axios.create({

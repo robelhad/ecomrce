@@ -12,7 +12,7 @@ addAlias("@", aliasPath);
 
 import { createApp } from "./app";
 
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 10000;
 
 
 /*
@@ -32,7 +32,7 @@ async function bootstrap() {
   try{
   const { httpServer } = await createApp();
 
-  httpServer.listen(PORT, () => {
+  httpServer.listen(PORT,"0.0.0.0", () => {
     console.log(`Server is running on port ${PORT}`);
   });
 

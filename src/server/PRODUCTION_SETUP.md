@@ -10,7 +10,7 @@ Create a `.env` file in your production environment with these variables:
 
 ```bash
 # Server Configuration
-NODE_ENV=production
+NODE_ENV=
 PORT=5000
 
 # Security

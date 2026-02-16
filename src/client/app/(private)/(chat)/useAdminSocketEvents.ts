@@ -11,8 +11,8 @@ export const useAdminSocketEvents = (
     // Get server URL based on environment
     const serverUrl =
       process.env.NODE_ENV === "production"
-        ? "https://egwinch.com"
-        : "http://localhost:5000";
+        ? "https://ecomrce-e7wd.onrender.com"
+        : "https://ecomrce-e7wd.onrender.com";
 
     // Initialize socket connection
     socketRef.current = io(serverUrl);
