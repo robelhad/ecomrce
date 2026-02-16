@@ -1,3 +1,4 @@
+import "module-alias/register";
 import { addAlias } from "module-alias";
 import path from "path";
 //import express from "express";
