@@ -51,6 +51,7 @@ class CheckoutService {
             const clientUrl = isProduction
                 ? process.env.CLIENT_URL_PROD
                 : process.env.CLIENT_URL_DEV;
+            console.log(clientUrl);
             const session = yield stripe_1.default.checkout.sessions.create({
                 payment_method_types: ["card"],
                 line_items: lineItems,

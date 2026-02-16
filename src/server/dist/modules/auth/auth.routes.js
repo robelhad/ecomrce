@@ -49,6 +49,10 @@ router.get("/google/callback", passport_1.default.authenticate("google", {
     yield (cartService === null || cartService === void 0 ? void 0 : cartService.mergeCartsOnLogin(sessionId, userId));
     res.redirect(env === "production" ? CLIENT_URL_PROD : CLIENT_URL_DEV);
 }));
+router.get("/microsoft", (0, handleSocialLogin_1.default)("microsoft"));
+router.get("/microsoft/callback", passport_1.default.authenticate("microsoft", { failureRedirect: "/auth/login?error=microsoft", session: true, }), (req, res) => {
+    res.redirect(process.env.CLIENT_APP_URL || "https://ecommerce-sepia-iota-43.vercel.app/");
+});
 /**
  * @swagger
  * /google/callback:

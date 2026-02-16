@@ -23,6 +23,7 @@ const logger_1 = __importDefault(require("@/infra/winston/logger"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const BadRequestError_1 = __importDefault(require("@/shared/errors/BadRequestError"));
 const NotFoundError_1 = __importDefault(require("@/shared/errors/NotFoundError"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 class AuthService {
     constructor(authRepository) {
         this.authRepository = authRepository;
@@ -33,11 +34,12 @@ class AuthService {
             if (existingUser) {
                 throw new AppError_1.default(400, "This email is already registered, please log in instead.");
             }
+            const hashed = yield bcryptjs_1.default.hash(password, 12);
             // Force new registrations to be USER role only for security
             const newUser = yield this.authRepository.createUser({
                 email,
                 name,
-                password,
+                password: hashed,
                 role: client_1.ROLE.USER, // Ignore any role passed from client for security
             });
             const accessToken = authUtils_1.tokenUtils.generateAccessToken(newUser.id);
